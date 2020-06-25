@@ -19,3 +19,4 @@ Route::get('/amy',  function () {
     return view('amy.index');
 });
 
+Route::get('pay', 'PayOrderController@store');
