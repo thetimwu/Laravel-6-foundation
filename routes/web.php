@@ -20,3 +20,6 @@ Route::get('/amy',  function () {
 });
 
 Route::get('pay', 'PayOrderController@store');
+
+Route::get('channel', 'ChannelController@index');
+Route::get('post', 'PostController@create');
