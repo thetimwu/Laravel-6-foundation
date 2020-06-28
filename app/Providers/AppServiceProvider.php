@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Postcard;
+use App\PostcardSendingServices;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //     $this->app->singleton(PostcardSendingServices::class, function ($app) {
+        //         return new PostcardSendingServices('usa', 4, 6);
+        //     });
     }
 
     /**
@@ -23,6 +27,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // $this->app->singleton(PostcardSendingServices::class, function ($app) {
+        //     return new PostcardSendingServices('usa', 4, 6);
+        // });
+
+        $this->app->singleton('Postcard', function () {
+            return new PostcardSendingServices('usa', 4, 6);
+        });
     }
 }
