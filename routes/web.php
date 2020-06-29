@@ -11,11 +11,15 @@
 |
 */
 
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Support\Facades\Response;
+
 Route::get('/', function () {
-    return view('welcome');
+    dd(Str::prefix('32446456', 'abc-'));
+
+    return Response::errorJson('tsting error');
 });
 
 Route::get('/amy',  function () {
     return view('amy.index');
 });
-
