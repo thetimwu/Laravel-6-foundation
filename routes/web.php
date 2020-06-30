@@ -11,11 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CustomerController@index');
 
-Route::get('/amy',  function () {
-    return view('amy.index');
-});
-
+Route::get('/customer/{customerId}/update', 'CustomerController@update');
+Route::get('/customer/{customerId}', 'CustomerController@show');
+Route::get('/customer/{customerId}/delete', 'CustomerController@destroy');
