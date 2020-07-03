@@ -15,7 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/amy',  function () {
-    return view('amy.index');
+Route::get('/collections',  function () {
+    $col = collect([
+        ['income' => 100, 'tax' => 10],
+        ['income' => 100, 'tax' => 10],
+        ['income' => 1000, 'tax' => 200],
+    ]);
+    return $col->avg(function ($val) {
+        return $val['income'] - $val['tax'];
+    });
 });
-
