@@ -2,10 +2,15 @@
 
 namespace App\Providers;
 
+use App\Policies\PostPolicy;
+use App\Post;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    protected $policies = [
+        Post::class => PostPolicy::class,
+    ];
     /**
      * Register any application services.
      *
@@ -13,7 +18,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**

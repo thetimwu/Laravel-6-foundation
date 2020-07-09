@@ -11,11 +11,19 @@
 |
 */
 
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/amy',  function () {
-    return view('amy.index');
-});
+Route::get('/posts/{post}/edit', 'PostController@edit')->name('post.edit');
+Route::get('/posts/create', 'PostController@create')->name('post.create');
+Route::patch('/posts/{post}', 'PostController@update')->name('post.update');
+Route::post('/posts', 'PostController@store')->name('post.store');
+Route::get('/posts', 'PostController@index')->name('post.index');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
